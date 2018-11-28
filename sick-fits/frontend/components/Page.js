@@ -1,7 +1,8 @@
 import React from "react";
+import styled, { ThemeProvider, injectGlobal } from "styled-components";
 import Meta from "./Meta";
 import Header from "./Header";
-import styled, { ThemeProvider, injectGlobal } from "styled-components";
+import { inject } from "async";
 
 const theme = {
   red: "#ff0000",
@@ -23,6 +24,37 @@ const Inner = styled.main`
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 2rem;
+`;
+
+injectGlobal`
+  @font-face {
+    font-family: 'radnika_next';
+    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }}
+
+  html {
+    box-sizing: border-box;
+    font-family: radnika_next, sans-serif;
+    font-size: 10px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 2;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${theme.black};
+  }
 `;
 
 class Page extends React.Component {
