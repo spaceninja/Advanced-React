@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import Item from "./Item";
 
-const ALL_ITEMS_QUERY = gql`
+export const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
     items {
       id
@@ -29,7 +29,7 @@ const ItemsList = styled.div`
   margin: 0 auto;
 `;
 
-export default class Items extends Component {
+class Items extends React.Component {
   render() {
     return (
       <Center>
@@ -50,3 +50,5 @@ export default class Items extends Component {
     );
   }
 }
+
+export default Items;
